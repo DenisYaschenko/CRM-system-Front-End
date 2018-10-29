@@ -32,6 +32,8 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       } else if (params['accessDenied']) {
         MaterialService.toast('For start autorizate in system');
         // for start autorizate in system
+      } else if (params['sessionFailed']) {
+        MaterialService.toast('Log in to system again');
       }
     });
   }
