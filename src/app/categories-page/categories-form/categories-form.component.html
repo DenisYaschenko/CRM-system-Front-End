@@ -31,26 +31,37 @@
       </div>
 
       <div>
-        <button 
-            type="button"
-            class="waves-effect waves-light btn orange lighten-2 mb2">
+        <input
+          #input
+          (change)="onFileUpload($event)"
+          class="dn"
+          type="file"
+        >
+        <button
+          (click)="triggerClick()"
+          [disabled]="form.disabled"
+          type="button"
+          class="waves-effect waves-light btn orange lighten-2 mb2">
           <i class="material-icons left">backup</i>
           Загрузить изображение
         </button>
-      </div>
-
-      <div>
-        <button 
-            type="submit"
-            [disabled]="form.invalid || form.disabled"
-            class="waves-effect waves-light btn">
+        <br>
+        <button
+          type="submit"
+          [disabled]="form.invalid || form.disabled"
+          class="waves-effect waves-light btn">
           Сохранить изменения
         </button>
       </div>
+
     </form>
 
     <div class="col s12 l4 center">
-      <img class="responsive-img" style="height: 200px" src="cake.jpg">
+      <img
+        class="responsive-img h200"
+        [src]="imagePreview"
+        *ngIf="imagePreview"
+      >
     </div>
   </div>
   <!-- <app-position-form></app-position-form> -->
