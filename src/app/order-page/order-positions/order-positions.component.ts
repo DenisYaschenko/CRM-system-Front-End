@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Position } from 'src/app/shared/interfaces';
 import { switchMap, map } from 'rxjs/operators';
 import { OrderService } from '../order.service';
+import { MaterialService } from 'src/app/shared/classes/material.service';
 
 @Component({
   selector: 'app-order-positions',
@@ -41,11 +42,10 @@ export class OrderPositionsComponent implements OnInit {
 
   someChanges($event) {
     this.validNumber = $event > 0 ? false : true;
-
   }
 
   addToOrder(position: Position) {
-    
+    MaterialService.toast(`Добавлено x${position.quantity}`)
     this.order.add(position);
   }
 
